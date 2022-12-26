@@ -5,15 +5,15 @@ import 'package:main_portfolio_website/utils/constants.dart';
 final themeProvider = ChangeNotifierProvider(((ref) => CustomThemeProvider()));
 
 class CustomThemeProvider extends ChangeNotifier {
-  ThemeMode themeMode = ThemeMode.light;
+  ThemeData? themeData;
 
-  bool get isDarkMode => themeMode == ThemeMode.dark;
+  bool get isDarkMode => themeData == MyThemes.darkTheme;
 
   ThemeData get getCurrentTheme => isDarkMode ? MyThemes.darkTheme : MyThemes.lightTheme;
 
   void changeTheme(bool? val) {
     if (val != null) {
-      themeMode = val ? ThemeMode.dark : ThemeMode.light;
+      themeData = val ? MyThemes.darkTheme : MyThemes.lightTheme;
     }
     notifyListeners();
   }
@@ -21,6 +21,11 @@ class CustomThemeProvider extends ChangeNotifier {
 
 class MyThemes {
   static final lightTheme = ThemeData(
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: lightPrimaryColor,
+      ),
+    ),
     scaffoldBackgroundColor: Colors.white,
     colorScheme: const ColorScheme.light(),
     primaryColor: const Color(0xFFFFD800),

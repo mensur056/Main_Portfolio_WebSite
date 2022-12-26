@@ -27,9 +27,7 @@ class MyApp extends StatelessWidget {
           child: MaterialApp(
             title: "Mansur Sarkhanov",
             debugShowCheckedModeBanner: false,
-            themeMode: ref.watch(themeProvider).themeMode,
-            theme: MyThemes.lightTheme,
-            darkTheme: MyThemes.darkTheme,
+            theme: ref.watch(themeProvider).isDarkMode ? MyThemes.darkTheme : MyThemes.lightTheme,
             initialRoute: Routes.initial,
             onGenerateRoute: RouterGenerator.generateRoute,
           ),

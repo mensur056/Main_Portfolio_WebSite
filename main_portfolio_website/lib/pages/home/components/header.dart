@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:main_portfolio_website/models/header_item.dart';
 import 'package:main_portfolio_website/provider/home.dart';
 import 'package:main_portfolio_website/provider/theme.dart';
@@ -34,13 +35,13 @@ class HeaderLogo extends StatelessWidget {
                       fontSize: 26.0,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.5,
-                      color: ref.watch(themeProvider).isDarkMode ? Colors.black : Colors.white,
+                      color: ref.watch(themeProvider).isDarkMode ? Colors.white : Colors.black,
                     ),
                   ),
                   TextSpan(
                     text: "Dev",
                     style: GoogleFonts.josefinSans(
-                      color: darkPrimaryColor,
+                      color: ref.watch(themeProvider).isDarkMode ? lightPrimaryColor : darkPrimaryColor,
                       fontSize: 26.0,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.5,
@@ -56,7 +57,7 @@ class HeaderLogo extends StatelessWidget {
   }
 }
 
-class HeaderRow extends StatelessWidget {
+class HeaderRow extends StatefulWidget {
   const HeaderRow({Key? key, required this.themeSwitch}) : super(key: key);
   final Widget themeSwitch;
 
@@ -104,6 +105,20 @@ class HeaderRow extends StatelessWidget {
       ];
 
   @override
+  State<HeaderRow> createState() => _HeaderRowState();
+}
+
+class _HeaderRowState extends State<HeaderRow> with TickerProviderStateMixin {
+  late final AnimationController _animationController;
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(vsync: this);
+  }
+
+  void changeThemeValue() {}
+
+  @override
   Widget build(BuildContext context) {
     return ResponsiveVisibility(
       visible: false,
@@ -113,7 +128,7 @@ class HeaderRow extends StatelessWidget {
       child: Consumer(
         builder: (context, ref, child) {
           return Row(children: [
-            ...headerItems
+            ...HeaderRow.headerItems
                 .map(
                   (item) => item.title == "Themes"
                       ? const Text("")
@@ -141,7 +156,22 @@ class HeaderRow extends StatelessWidget {
                         ),
                 )
                 .toList(),
-            themeSwitch
+            // themeSwitch
+            InkWell(
+              onTap: () {
+                _animationController.animateTo(0.5, duration: const Duration(milliseconds: 800));
+                ref.read(themeProvider).changeTheme(true);
+                if (_animationController.isCompleted) {
+                  _animationController.animateTo(0, duration: const Duration(milliseconds: 800));
+                  ref.read(themeProvider).changeTheme(false);
+                }
+              },
+              child: LottieBuilder.asset(
+                controller: _animationController,
+                'assets/images/lotti_themechange.json',
+                repeat: false,
+              ),
+            )
           ]);
         },
       ),

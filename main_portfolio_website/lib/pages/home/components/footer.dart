@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:main_portfolio_website/models/footer_item.dart';
+import 'package:main_portfolio_website/provider/theme.dart';
 import 'package:main_portfolio_website/utils/constants.dart';
 import 'package:main_portfolio_website/utils/screen_helper.dart';
 import 'package:main_portfolio_website/utils/utils.dart';
@@ -67,76 +69,82 @@ Widget _buildUi(double width, BuildContext context) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 50.0),
-                child: Wrap(
-                  spacing: 20.0,
-                  runSpacing: 20.0,
-                  children: footerItems
-                      .map(
-                        (footerItem) => MouseRegion(
-                          cursor: SystemMouseCursors.click,
-                          child: InkWell(
-                            onTap: footerItem.onTap,
-                            child: SizedBox(
-                              width: ScreenHelper.isMobile(context)
-                                  ? constraints.maxWidth / 2.0 - 20.0
-                                  : constraints.maxWidth / 4.0 - 20.0,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
+              Consumer(
+                builder: (context, ref, child) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 50.0),
+                    child: Wrap(
+                      spacing: 20.0,
+                      runSpacing: 20.0,
+                      children: footerItems
+                          .map(
+                            (footerItem) => MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: InkWell(
+                                onTap: footerItem.onTap,
+                                child: SizedBox(
+                                  width: ScreenHelper.isMobile(context)
+                                      ? constraints.maxWidth / 2.0 - 20.0
+                                      : constraints.maxWidth / 4.0 - 20.0,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Icon(
-                                        footerItem.iconData,
-                                        color: darkPrimaryColor,
-                                        size: 28,
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Icon(
+                                            footerItem.iconData,
+                                            color: ref.watch(themeProvider).isDarkMode
+                                                ? lightPrimaryColor
+                                                : darkPrimaryColor,
+                                            size: 28,
+                                          ),
+                                          const SizedBox(
+                                            width: 15.0,
+                                          ),
+                                          Text(
+                                            footerItem.title,
+                                            style: GoogleFonts.josefinSans(
+                                              fontSize: 18.0,
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                       const SizedBox(
-                                        width: 15.0,
+                                        height: 10.0,
                                       ),
-                                      Text(
-                                        footerItem.title,
-                                        style: GoogleFonts.josefinSans(
-                                          fontSize: 18.0,
-                                          fontWeight: FontWeight.w700,
+                                      RichText(
+                                        textAlign: TextAlign.start,
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: "${footerItem.text1}\n",
+                                              style: const TextStyle(
+                                                color: kCaptionColor,
+                                                height: 1.8,
+                                              ),
+                                            ),
+                                            TextSpan(
+                                              text: "${footerItem.text2}\n",
+                                              style: const TextStyle(
+                                                color: kCaptionColor,
+                                              ),
+                                            )
+                                          ],
                                         ),
-                                      ),
+                                      )
                                     ],
                                   ),
-                                  const SizedBox(
-                                    height: 10.0,
-                                  ),
-                                  RichText(
-                                    textAlign: TextAlign.start,
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: "${footerItem.text1}\n",
-                                          style: const TextStyle(
-                                            color: kCaptionColor,
-                                            height: 1.8,
-                                          ),
-                                        ),
-                                        TextSpan(
-                                          text: "${footerItem.text2}\n",
-                                          style: const TextStyle(
-                                            color: kCaptionColor,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                      )
-                      .toList(),
-                ),
+                          )
+                          .toList(),
+                    ),
+                  );
+                },
               ),
               const SizedBox(
                 height: 20.0,

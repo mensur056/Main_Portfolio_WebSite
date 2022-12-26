@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:main_portfolio_website/utils/constants.dart';
+import 'package:main_portfolio_website/utils/screen_helper.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../../../utils/constants.dart';
-import '../../../utils/screen_helper.dart';
 import 'carousel_items.dart';
 
 class Carousel extends StatelessWidget {
@@ -12,8 +12,7 @@ class Carousel extends StatelessWidget {
   Carousel({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    double carouselContainerHeight = MediaQuery.of(context).size.height *
-        (ScreenHelper.isMobile(context) ? .7 : .85);
+    double carouselContainerHeight = MediaQuery.of(context).size.height * (ScreenHelper.isMobile(context) ? .7 : .85);
     return SizedBox(
       height: carouselContainerHeight,
       width: double.infinity,

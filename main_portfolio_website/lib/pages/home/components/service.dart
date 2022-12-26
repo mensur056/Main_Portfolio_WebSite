@@ -89,8 +89,7 @@ class ServiceSection extends StatelessWidget {
                 builder: (context, ref, child) {
                   return GestureDetector(
                     onTap: () {
-                      Utilty.openUrl(
-                          "https://github.com/AgnelSelvan/AgnelSelvan.github.io/raw/main/assets/files/Agnel-Selvan.pdf");
+                      Utilty.openUrl("https://novoresume.com/editor/resume/3a19ea70-c7bf-11eb-a64f-e50628c39e89");
                     },
                     child: MouseRegion(
                       cursor: SystemMouseCursors.click,
@@ -206,29 +205,34 @@ class ServiceSection extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
                       alignment: Alignment.center,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                      child: Consumer(
+                        builder: (context, ref, child) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Image.asset(
-                                designProcesses[index].imagePath,
-                                width: 40.0,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    designProcesses[index].imagePath,
+                                    color: ref.watch(themeProvider).isDarkMode ? lightPrimaryColor : darkPrimaryColor,
+                                    width: 40.0,
+                                  ),
+                                  const SizedBox(
+                                    width: 15.0,
+                                  ),
+                                  Text(
+                                    designProcesses[index].title,
+                                    style: GoogleFonts.josefinSans(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  )
+                                ],
                               ),
-                              const SizedBox(
-                                width: 15.0,
-                              ),
-                              Text(
-                                designProcesses[index].title,
-                                style: GoogleFonts.josefinSans(
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              )
                             ],
-                          ),
-                        ],
+                          );
+                        },
                       ),
                     );
                   },

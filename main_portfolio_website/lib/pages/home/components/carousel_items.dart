@@ -102,7 +102,7 @@ List<CarouselItemModel> carouselItems(double carouselContainerHeight) => List.ge
                               child: Text(
                                 "Let's Talk",
                                 style: TextStyle(
-                                  color: Colors.grey[800],
+                                  color: ref.read(themeProvider).isDarkMode ? kBackgroundColor : Colors.white,
                                   fontSize: 13.0,
                                   fontWeight: FontWeight.bold,
                                 ),
