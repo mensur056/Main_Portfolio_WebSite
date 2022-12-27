@@ -12,6 +12,7 @@ import 'package:main_portfolio_website/pages/home/components/project.dart';
 import 'package:main_portfolio_website/pages/home/components/service.dart';
 import 'package:main_portfolio_website/provider/home.dart';
 import 'package:main_portfolio_website/provider/theme.dart';
+import 'package:main_portfolio_website/utils/constants.dart';
 import 'package:main_portfolio_website/utils/globals.dart';
 import 'package:main_portfolio_website/utils/screen_helper.dart';
 import 'package:main_portfolio_website/widgets/switch.dart';
@@ -57,6 +58,7 @@ class _HomeState extends ConsumerState<Home> with SingleTickerProviderStateMixin
                 const SizedBox(
                   height: 20.0,
                 ),
+                const SocialMediaIcons(),
                 AboutSection(
                   key: _homeProvider.aboutKey,
                 ),
@@ -189,6 +191,40 @@ class _HomeState extends ConsumerState<Home> with SingleTickerProviderStateMixin
         ),
       ),
       body: _buildPage(),
+    );
+  }
+}
+
+class SocialMediaIcons extends StatelessWidget {
+  const SocialMediaIcons({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer(
+      builder: (context, ref, child) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: AppConstants.socialLoginDatas
+              .map(
+                (e) => InkWell(
+                  onTap: e.onTap,
+                  child: Container(
+                    width: 20,
+                    height: 20,
+                    margin: const EdgeInsets.all(10),
+                    child: Image.asset(
+                      e.title,
+                      color: ref.watch(themeProvider).isDarkMode ? lightPrimaryColor : darkPrimaryColor,
+                    ),
+                  ),
+                ),
+              )
+              .toList(),
+        );
+      },
     );
   }
 }

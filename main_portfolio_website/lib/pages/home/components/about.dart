@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:main_portfolio_website/models/technology.dart';
 import 'package:main_portfolio_website/provider/theme.dart';
@@ -153,9 +152,14 @@ class _AboutSectionState extends State<AboutSection> {
                 if (ScreenHelper.isDesktop(context) || ScreenHelper.isTablet(context))
                   Expanded(
                     flex: constraints.maxWidth > 720.0 ? 1 : 0,
-                    child: SvgPicture.asset(
-                      AppConstants.personSvg,
-                      width: constraints.maxWidth > 720.0 ? null : 350.0,
+                    child: Container(
+                      height: 500,
+                      width: 500,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(fit: BoxFit.cover, image: AssetImage('assets/images/iam_2.jpeg')),
+                        color: Colors.redAccent,
+                      ),
                     ),
                   ),
               ],

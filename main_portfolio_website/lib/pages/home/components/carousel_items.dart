@@ -119,21 +119,6 @@ List<CarouselItemModel> carouselItems(double carouselContainerHeight) => List.ge
                 cursor: SystemMouseCursors.click,
                 child: SizedBox(
                   height: carouselContainerHeight - 70,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: AppConstants.socialLoginDatas
-                        .map((e) => InkWell(
-                              onTap: e.onTap,
-                              child: Container(
-                                width: 20,
-                                height: 20,
-                                margin: const EdgeInsets.all(10),
-                                child: Image.asset(e.title),
-                              ),
-                            ))
-                        .toList(),
-                  ),
                 ),
               )
             ],
