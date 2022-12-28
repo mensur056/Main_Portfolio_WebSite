@@ -61,11 +61,6 @@ class AppConstants {
 
   static List<NameOnTap> socialLoginDatas = [
     NameOnTap(
-        title: emailImage,
-        onTap: () {
-          Utilty.openMail();
-        }),
-    NameOnTap(
         title: linkedInImage,
         onTap: () {
           Utilty.openUrl(linkedInUrl);
