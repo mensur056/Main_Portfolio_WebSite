@@ -138,36 +138,41 @@ class ProjectSection extends StatelessWidget {
                           const SizedBox(
                             height: 25.0,
                           ),
-                          Row(
-                            children: [
-                              MouseRegion(
-                                cursor: SystemMouseCursors.click,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: darkPrimaryColor,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  height: 48.0,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 28.0,
-                                  ),
-                                  child: TextButton(
-                                    onPressed: () {
-                                      Utilty.openUrl(projectModel.projectLink);
-                                    },
-                                    child: Center(
-                                      child: Text(
-                                        (projectModel.buttonText ?? "Explore MORE").toUpperCase(),
-                                        style: const TextStyle(
-                                          fontSize: 13.0,
-                                          fontWeight: FontWeight.bold,
+                          Consumer(
+                            builder: (context, ref, child) {
+                              return Row(
+                                children: [
+                                  MouseRegion(
+                                    cursor: SystemMouseCursors.click,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color:
+                                            ref.watch(themeProvider).isDarkMode ? lightPrimaryColor : darkPrimaryColor,
+                                        borderRadius: BorderRadius.circular(8.0),
+                                      ),
+                                      height: 48.0,
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 28.0,
+                                      ),
+                                      child: TextButton(
+                                        onPressed: () {
+                                          Utilty.openUrl(projectModel.projectLink);
+                                        },
+                                        child: Center(
+                                          child: Text(
+                                            (projectModel.buttonText ?? "Explore MORE").toUpperCase(),
+                                            style: const TextStyle(
+                                              fontSize: 13.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ),
-                            ],
+                                ],
+                              );
+                            },
                           )
                         ],
                       ),

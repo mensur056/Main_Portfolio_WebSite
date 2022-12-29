@@ -146,19 +146,19 @@ class _AboutSectionState extends State<AboutSection> {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  width: 30,
+                ),
                 if (ScreenHelper.isDesktop(context) || ScreenHelper.isTablet(context))
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Expanded(
-                      flex: constraints.maxWidth > 720.0 ? 1 : 0,
-                      child: Container(
-                        height: 500,
-                        width: 500,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(fit: BoxFit.cover, image: AssetImage('assets/images/iam_2.jpeg')),
-                          color: Colors.redAccent,
-                        ),
+                    child: Container(
+                      height: 400,
+                      width: 400,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(fit: BoxFit.cover, image: AssetImage('assets/images/iam_2.jpeg')),
+                        color: Colors.redAccent,
                       ),
                     ),
                   ),

@@ -73,6 +73,7 @@ flutter:
     - assets/images/
     - assets/images/social/
     - assets/images/projects/
+    - assets/images/projectimage/
     - assets/images/technology/
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -73,6 +73,9 @@ class ServiceSection extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          const SizedBox(
+            height: 30,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -107,9 +110,6 @@ class ServiceSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(
-            height: 20,
-          ),
           Text(
             "What I Do?",
             style: GoogleFonts.josefinSans(
@@ -129,7 +129,7 @@ class ServiceSection extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: ScreenHelper.isDesktop(context) ? 140 : 70,
+            height: ScreenHelper.isDesktop(context) ? 100 : 70,
           ),
           Consumer(builder: (context, ref, _) {
             return Wrap(

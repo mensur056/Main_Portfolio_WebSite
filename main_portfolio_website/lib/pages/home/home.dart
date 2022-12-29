@@ -59,8 +59,14 @@ class _HomeState extends ConsumerState<Home> with SingleTickerProviderStateMixin
                   height: 20.0,
                 ),
                 const SocialMediaIcons(),
+                const SizedBox(
+                  height: 50,
+                ),
                 AboutSection(
                   key: _homeProvider.aboutKey,
+                ),
+                const SizedBox(
+                  height: 50,
                 ),
                 ServiceSection(
                   key: _homeProvider.servicesKey,
@@ -69,33 +75,7 @@ class _HomeState extends ConsumerState<Home> with SingleTickerProviderStateMixin
                   key: _homeProvider.portfolioKey,
                   height: 100.0,
                 ),
-                Center(
-                    child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Portfolio",
-                      style: GoogleFonts.josefinSans(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 36,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Here are some of my Previous Work :)",
-                      style: GoogleFonts.josefinSans(
-                        color: Colors.grey[400],
-                        fontSize: 14,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    )
-                  ],
-                )),
+                _portfolioTextSection(),
                 ProjectSection(
                   projects: ProjectModel.projects,
                 ),
@@ -130,6 +110,36 @@ class _HomeState extends ConsumerState<Home> with SingleTickerProviderStateMixin
         ),
       ],
     );
+  }
+
+  Center _portfolioTextSection() {
+    return Center(
+        child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          "Portfolio",
+          style: GoogleFonts.josefinSans(
+            fontWeight: FontWeight.w900,
+            fontSize: 36,
+          ),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        Text(
+          "Here are some of my Previous Work :)",
+          style: GoogleFonts.josefinSans(
+            color: Colors.grey[400],
+            fontSize: 14,
+          ),
+        ),
+        const SizedBox(
+          height: 15,
+        )
+      ],
+    ));
   }
 
   @override
