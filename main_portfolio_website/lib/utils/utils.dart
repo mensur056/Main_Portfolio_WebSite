@@ -7,7 +7,12 @@ class Utilty {
     }
   }
 
-  static Future<void> openMail() => openUrl("mailto:mansur.sarxanov@gmail.com");
+  static final Uri _emailLaunchUri = Uri(
+    scheme: 'mailto',
+    path: 'mansur.sarxanov@gmail.com',
+  );
+
+  static Future<void> openMail() => openUrl(_emailLaunchUri.toString());
 
   static Future<void> openMyLocation() => openUrl(
       "https://www.google.com/maps/place/40%C2%B022'36.3%22N+49%C2%B049'59.4%22E/@40.37675,49.8331667,17z/data=!3m1!4b1!4m6!3m5!1s0x0:0xb95c71214f675495!7e2!8m2!3d40.3767556!4d49.8331667");

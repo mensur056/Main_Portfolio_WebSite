@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:main_portfolio_website/models/header_item.dart';
-import 'package:main_portfolio_website/utils/constants.dart';
-import 'package:main_portfolio_website/utils/utils.dart';
 
 final homeProvider = ChangeNotifierProvider((ref) => HomeProvider());
 
@@ -12,9 +10,15 @@ class HomeProvider extends ChangeNotifier {
   final servicesKey = GlobalKey();
   final aboutKey = GlobalKey();
   final homeKey = GlobalKey();
+  final skillKey = GlobalKey();
 
   Future<void> scrollToContact() async {
     final context = contactKey.currentContext;
+    await _scroll(context);
+  }
+
+  Future<void> scrollToSkills() async {
+    final context = skillKey.currentContext;
     await _scroll(context);
   }
 
@@ -59,8 +63,8 @@ class HomeProvider extends ChangeNotifier {
       scrollToPortfolio();
     } else if (nameOnTap.title == "About") {
       scrollToAbout();
-    } else if (nameOnTap.title == "Blog") {
-      Utilty.openUrl(AppConstants.mediumUrl);
+    } else if (nameOnTap.title == "Skills") {
+      scrollToSkills();
     }
   }
 }

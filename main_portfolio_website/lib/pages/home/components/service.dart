@@ -92,7 +92,8 @@ class ServiceSection extends StatelessWidget {
                 builder: (context, ref, child) {
                   return GestureDetector(
                     onTap: () {
-                      Utilty.openUrl("https://novoresume.com/editor/resume/3a19ea70-c7bf-11eb-a64f-e50628c39e89");
+                      Utilty.openUrl(
+                          "https://docmansursarkhanov56.s3.us-east-1.amazonaws.com/Mansur-Sarkhanov.pdf?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECgaCmV1LW5vcnRoLTEiRzBFAiEA6rmzF3QhnJmjrD2l3U01iwtUfzaH9V04JBO2Vr2bbkoCIA8CIfhCqQuvk1LSBNU9cR%2BrE1%2B%2FBSetAIFqj7ELjR68KuQCCHEQABoMMDY4NzQ4MjM2MzQ0IgyCQGPRmGoCxOzTfgwqwQLtgxK3pPNw7oh5A7i7pH4kPTYf2EfshLDFYauhnuqGGr65ltI9i9RqDOdoWKPoK24lKhG2vAhTaN9XWYiwx15gZrj5hdjj9khb5clLxs1GiSAuzoQEq0kT0KBxCm2WyvZPuoFA%2BPAVJN41V7AUS%2BxlndDF4B1kd27D9tKTGVtRyWsapDS2%2FqPVyvrnrIYqQwg%2BsVkBtUu0PWin4jCYwfwMjCy5acWWKfJtGakSWd6j4TM3%2FR1VJnKn4gdulVLdBaL3cX0eMwMmnme2O1U%2Bg14KXWUq4Sp8jJv%2BhLFUMsruf8bQvy6Pm2BLM41tqzgMdzG1ddxCKWCYNXjHg5dYWzanUq21i1BYT5PhveCrNHC2gTmh4upkoVYUEiwF3nH7buQyFVkDslkOlebJLe3fMmgkPkg42cRkap7D7L09uTjEWlwwk626nQY6swIxpXsu07JN6YgHB4v0UY7QoDKKnWDGPe%2FegTVh5PbSdcriskk%2F0HC7nMYCcT%2FegVyPcLO1SCsJpksDMeF1qJowiEG59QtRHWjxrMmRCiwcEblFMD22n7oupUapbeceBOsOaVxwdj1WsixmFc1hwl99Qp9PiX1oYsx7jwik9IcZcCbQCPlZtipw4o8r5G58zjkssGVUbHerTk4%2FGpUZCHCvA6CXPkLVoyCc7lu7hey0KyZ7Jfn9ekiILvRRH1EVYJuXDa4TW5ZkW1zjhOr0tnXHw4SkCf5kUwxNbnrg3F41P8r15zQ2SjrT6LCC9WRPJU1ByMKz4xWn5%2FlRToM%2FUIUPfR63A4tzWVT%2FHM%2FiyuE5MYzlZ3fr0gKU1FF%2BZaOhswT%2BRMyQntBIhJYinHtulnc5Akc5&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221230T075753Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Credential=ASIARAANW2Y4OM5YYZCA%2F20221230%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=dc6aae027df86e3b8be0bea4933cffc8791adf7b90500a3c565d04780e427ad5");
                     },
                     child: MouseRegion(
                       cursor: SystemMouseCursors.click,

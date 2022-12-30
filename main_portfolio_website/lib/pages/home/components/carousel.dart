@@ -77,9 +77,11 @@ Widget _buildDesktop(BuildContext context, Widget text, Widget image) {
       child: Row(
         children: [
           Expanded(
+            flex: 4,
             child: text,
           ),
           Expanded(
+            flex: 3,
             child: image,
           )
         ],

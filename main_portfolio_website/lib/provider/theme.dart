@@ -5,7 +5,7 @@ import 'package:main_portfolio_website/utils/constants.dart';
 final themeProvider = ChangeNotifierProvider(((ref) => CustomThemeProvider()));
 
 class CustomThemeProvider extends ChangeNotifier {
-  ThemeData? themeData;
+  ThemeData themeData = MyThemes.lightTheme;
 
   bool get isDarkMode => themeData == MyThemes.darkTheme;
 

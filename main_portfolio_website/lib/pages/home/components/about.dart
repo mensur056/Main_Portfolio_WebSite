@@ -57,7 +57,7 @@ class _AboutSectionState extends State<AboutSection> {
                             height: 25.0,
                           ),
                           Text(
-                            "I'm Mansur Sarkhanov, A Android and iOS Developer",
+                            "I'm Mansur Sarkhanov, A Android and IOS Developer",
                             style: GoogleFonts.josefinSans(
                               fontWeight: FontWeight.bold,
                               height: 1.3,

@@ -10,6 +10,7 @@ import 'package:main_portfolio_website/pages/home/components/header.dart';
 import 'package:main_portfolio_website/pages/home/components/portfolio_stats.dart';
 import 'package:main_portfolio_website/pages/home/components/project.dart';
 import 'package:main_portfolio_website/pages/home/components/service.dart';
+import 'package:main_portfolio_website/pages/home/components/skills.dart';
 import 'package:main_portfolio_website/provider/home.dart';
 import 'package:main_portfolio_website/provider/theme.dart';
 import 'package:main_portfolio_website/utils/constants.dart';
@@ -62,9 +63,23 @@ class _HomeState extends ConsumerState<Home> with SingleTickerProviderStateMixin
                 const SizedBox(
                   height: 50,
                 ),
-                AboutSection(
+                SizedBox(
                   key: _homeProvider.aboutKey,
+                  height: 100,
                 ),
+                const AboutSection(),
+                const SizedBox(
+                  height: 50,
+                ),
+                SizedBox(
+                  key: _homeProvider.skillKey,
+                  height: 100,
+                ),
+                _skillsSection(),
+                const SizedBox(
+                  height: 24,
+                ),
+                const SkillSection(),
                 const SizedBox(
                   height: 50,
                 ),
@@ -95,20 +110,52 @@ class _HomeState extends ConsumerState<Home> with SingleTickerProviderStateMixin
         ),
         Header(
           themeSwitch: ThemeSwitcher(
-              clipper: const ThemeSwitcherBoxClipper(),
-              builder: (context) {
-                return CustomSwitch(
-                  value: ref.watch(themeProvider).isDarkMode,
-                  onChanged: (val) {
-                    ref.read(themeProvider).changeTheme(val);
-                    ThemeSwitcher.of(context)
-                        .changeTheme(theme: ref.read(themeProvider).getCurrentTheme, isReversed: false // default: false
-                            );
-                  },
-                );
-              }),
+            clipper: const ThemeSwitcherBoxClipper(),
+            builder: (context) {
+              return CustomSwitch(
+                value: ref.watch(themeProvider).isDarkMode,
+                onChanged: (val) {
+                  ref.read(themeProvider).changeTheme(val);
+                  ThemeSwitcher.of(context)
+                      .changeTheme(theme: ref.read(themeProvider).getCurrentTheme, isReversed: false // default: false
+                          );
+                },
+              );
+            },
+          ),
         ),
       ],
+    );
+  }
+
+  Center _skillsSection() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "Skills",
+            style: GoogleFonts.josefinSans(
+              fontWeight: FontWeight.w900,
+              fontSize: 36,
+            ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Text(
+            "I knowledge and My interests :)",
+            style: GoogleFonts.josefinSans(
+              color: Colors.grey[400],
+              fontSize: 14,
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          )
+        ],
+      ),
     );
   }
 
@@ -222,8 +269,8 @@ class SocialMediaIcons extends StatelessWidget {
                 (e) => InkWell(
                   onTap: e.onTap,
                   child: Container(
-                    width: 20,
-                    height: 20,
+                    width: 30,
+                    height: 30,
                     margin: const EdgeInsets.all(10),
                     child: Image.asset(
                       e.title,

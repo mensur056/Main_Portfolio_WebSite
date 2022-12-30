@@ -73,6 +73,10 @@ class HeaderRow extends StatefulWidget {
           iconData: Icons.info,
         ),
         NameOnTap(
+          title: "Skills",
+          onTap: () {},
+        ),
+        NameOnTap(
           title: "Services",
           onTap: () {},
           iconData: Icons.school,
@@ -86,13 +90,6 @@ class HeaderRow extends StatefulWidget {
           title: "Contact",
           onTap: () {},
           iconData: Icons.contact_mail,
-        ),
-        NameOnTap(
-          title: "Blogs",
-          onTap: () {
-            Utilty.openUrl(AppConstants.mediumUrl);
-          },
-          iconData: Icons.article,
         ),
         NameOnTap(
           title: "Themes",

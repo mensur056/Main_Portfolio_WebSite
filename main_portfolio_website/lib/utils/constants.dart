@@ -3,7 +3,7 @@ import 'package:main_portfolio_website/models/header_item.dart';
 import 'package:main_portfolio_website/utils/utils.dart';
 
 const Color darkPrimaryColor = Color.fromARGB(255, 36, 123, 17);
-Color? lightPrimaryColor = const Color(0xFFe5a647);
+Color? lightPrimaryColor = const Color.fromARGB(255, 236, 168, 22);
 
 const Color kBackgroundColor = Color.fromRGBO(7, 17, 26, 1);
 const Color kDangerColor = Color.fromARGB(255, 243, 22, 22);
